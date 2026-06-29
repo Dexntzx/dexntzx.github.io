@@ -11,7 +11,7 @@
             --card-bg: #151f32;
             --text-main: #f1f5f9;
             --text-muted: #64748b;
-            --accent: #a855f7; /* Royal Purple Accent for a sleek look */
+            --accent: #a855f7; /* Royal Purple Accent */
             --accent-hover: #c084fc;
             --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
@@ -90,7 +90,7 @@
             position: relative;
         }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section & Buttons --- */
         #hero h1 {
             font-size: 4.5rem;
             font-weight: 800;
@@ -111,6 +111,12 @@
             line-height: 1.6;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .btn {
             display: inline-block;
             padding: 0.9rem 2.2rem;
@@ -127,6 +133,18 @@
             background-color: var(--accent-hover);
             transform: translateY(-3px);
             box-shadow: 0 6px 24px rgba(168, 85, 247, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--text-main);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(168, 85, 247, 0.1);
+            box-shadow: 0 6px 24px rgba(168, 85, 247, 0.1);
         }
 
         /* --- About Me Section --- */
@@ -167,6 +185,47 @@
             transform: translateY(-4px);
         }
 
+        /* --- New Focus Section --- */
+        .focus-text {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            line-height: 1.8;
+        }
+        
+        .focus-text strong {
+            color: var(--text-main);
+            border-bottom: 2px dashed var(--accent);
+        }
+
+        /* --- Interactive Eye Counter --- */
+        .eye-counter {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(21, 31, 50, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            user-select: none;
+            transition: var(--transition-smooth);
+        }
+
+        .eye-counter svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent);
+        }
+
         /* --- Animations --- */
         .reveal {
             opacity: 0;
@@ -185,48 +244,63 @@
             section { padding: 6rem 5% 3rem; }
             #hero h1 { font-size: 2.8rem; }
             .about-container { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .btn { text-align: center; }
         }
     </style>
 </head>
 <body>
 
+    <div class="eye-counter" id="eyeCounter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+        </svg>
+        <span id="clickCount">0</span>
+    </div>
+
     <header id="navbar">
         <a href="#hero" class="logo">dexntzx<span>.</span></a>
         <nav>
             <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#current-projects">Projects</a>
         </nav>
     </header>
 
     <section id="hero">
         <h1 class="reveal">Creative <br><span>Digital Space</span>.</h1>
         <p class="reveal">Welcome to my official domain. I shape ideas into polished, high-performing web realities.</p>
-        <a href="#about" class="btn reveal">Explore My World</a>
+        <div class="hero-buttons">
+            <a href="#about" class="btn reveal">Explore My World</a>
+            <a href="#current-projects" class="btn btn-secondary reveal">Something I'm working on</a>
+        </div>
     </section>
 
     <section id="about">
         <h2 class="section-title reveal">About Me</h2>
         <div class="about-container">
             <div class="about-text reveal">
-                <p>Hey there! I'm the mind behind <strong>dexntzx</strong>. I specialize in designing, developing, and experimenting with modern web tech.</p>
+                <p>Hey there! I'm the mind behind <strong>dexntzx</strong>. I specialize in designing, developing, and experimenting with modern tech ecosystems.</p>
                 <p>This site serves as my personal command center. I love taking complex concepts and breaking them down into minimal, ultra-smooth user interfaces that feel natural to interact with.</p>
-                <p>When I'm not writing code or tweaking styles, you can usually find me exploring new tech logic or working on side projects.</p>
             </div>
             <div class="about-skills reveal">
                 <p style="margin-bottom: 1.5rem; font-weight: 600; color: var(--text-main);">Current Tech Stack:</p>
                 <div class="skills-grid">
-                    <div class="skill-tag">Frontend Dev</div>
-                    <div class="skill-tag">JavaScript</div>
-                    <div class="skill-tag">UI/UX Design</div>
-                    <div class="skill-tag">GitHub Actions</div>
-                    <div class="skill-tag">CSS Architecture</div>
-                    <div class="skill-tag">Node.js</div>
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">Lua Script</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="current-projects">
+        <h2 class="section-title reveal">Current Focus</h2>
+        <div class="focus-text reveal">
+            <p>I'm currently working on a <strong>Minecraft server</strong>, <strong>Roblox games</strong>, and learning <strong>Java coding</strong>.</p>
+        </div>
+    </section>
+
     <script>
+        // Smooth scroll & active navigation logic
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 30) {
@@ -236,6 +310,7 @@
             }
         });
 
+        // Scroll reveal system
         const reveals = document.querySelectorAll('.reveal');
         function revealOnScroll() {
             for (let i = 0; i < reveals.length; i++) {
@@ -250,6 +325,27 @@
         }
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
+
+        // --- Global Press/Click Counter Logic ---
+        const counterDisplay = document.getElementById('clickCount');
+        
+        // Retrieve clicks from localStorage so it keeps counting up over visits
+        let totalClicks = localStorage.getItem('sitePressCount') ? parseInt(localStorage.getItem('sitePressCount')) : 0;
+        counterDisplay.innerText = totalClicks;
+
+        // Listen for a press anywhere on the entire page
+        document.body.addEventListener('click', () => {
+            totalClicks++;
+            localStorage.setItem('sitePressCount', totalClicks);
+            counterDisplay.innerText = totalClicks;
+            
+            // Subtle flash animation effect to show it registered the click
+            const counterWidget = document.getElementById('eyeCounter');
+            counterWidget.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                counterWidget.style.transform = 'scale(1)';
+            }, 100);
+        });
     </script>
 </body>
 </html>
