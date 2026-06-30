@@ -927,6 +927,7 @@
         </div>
     </section>
 
+    <!-- --- JavaScript Functional Logic --- -->
     <script>
         // 1. Mutual Toggling Sections Logic
         function revealToggleAndScroll(event, id, element) {
@@ -1060,11 +1061,20 @@
         setInterval(updateDiscordStatus, 10000);
         updateDiscordStatus();
 
-        // 6. Native Translucent Music Player Implementation
+        // 6. Native Music Player Array Implementation (Covers Removed)
         const playlistTracks = [
-            { title: "Lost in the City", artist: "Lofi Dreamer", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", art: "https://picsum.photos/id/143/200/200" },
-            { title: "Midnight Drive", artist: "Synthwave Beats", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3", art: "https://picsum.photos/id/152/200/200" },
-            { title: "Cyber Horizon", artist: "Neon Rider", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3", art: "https://picsum.photos/id/180/200/200" }
+            { title: "Hello Juliet", artist: "Clarion", src: "./Hello_Juliet.mp3" },
+            { title: "Meant To Be", artist: "320kbps", src: "./Meant_To_Be__320kbps_.mp3" },
+            { title: "Unslept", artist: "Miraidempa", src: "./Unslept.mp3" },
+            { title: "Waiting", artist: "Audio Track", src: "./Waiting.mp3" },
+            { title: "Duskydemise", artist: "Bedrott", src: "./bedrott.mp3" },
+            { title: "Faded Childhood", artist: "Crystal", src: "./faded_childhood.mp3" },
+            { title: "Loser Club", artist: "320kbps", src: "./loser_club__320kbps_.mp3" },
+            { title: "Misery", artist: "prod. pupsies", src: "./misery.mp3" },
+            { title: "Sometimes", artist: "Mattyeux & Princess Chelsea", src: "./sometimes.mp3" },
+            { title: "Stalk Ur Socials", artist: "Audio Track", src: "./stalk_ur_socials.mp3" },
+            { title: "Unhappy", artist: "Audio Track", src: "./unhappy.mp3" },
+            { title: "Why", artist: "h4teboy", src: "./why.mp3" }
         ];
         
         let currentTrackIdx = 0;
@@ -1076,7 +1086,9 @@
             nativeAudio.src = currentTrack.src;
             document.getElementById('playerTitle').innerText = currentTrack.title;
             document.getElementById('playerArtist').innerText = currentTrack.artist;
-            document.getElementById('playerArt').src = currentTrack.art;
+            
+            // Unified dark coral lofi neon placeholder image since specific cover properties were removed
+            document.getElementById('playerArt').src = "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=200&auto=format&fit=crop";
             
             document.querySelectorAll('.track-item').forEach((item, index) => {
                 item.classList.toggle('active', index === currentTrackIdx);
@@ -1106,7 +1118,7 @@
         function togglePlaybackState(forcePlay = false) {
             const controlBtn = document.getElementById('playPauseBtn');
             if (nativeAudio.paused || forcePlay) {
-                nativeAudio.play().catch(() => console.log("Playback context initiated by user action."));
+                nativeAudio.play().catch(() => console.log("Audio target context active."));
                 controlBtn.innerText = "⏸";
             } else {
                 nativeAudio.pause();
